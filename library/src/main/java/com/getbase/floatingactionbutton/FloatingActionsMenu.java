@@ -16,6 +16,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
+import android.view.MotionEvent;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,9 @@ public class FloatingActionsMenu extends ViewGroup {
 
   private AnimatorSet mExpandAnimation = new AnimatorSet().setDuration(ANIMATION_DURATION);
   private AnimatorSet mCollapseAnimation = new AnimatorSet().setDuration(ANIMATION_DURATION);
+
+
+
   private AddFloatingActionButton mAddButton;
   private RotatingDrawable mRotatingDrawable;
   private int mMaxButtonWidth;
@@ -638,5 +642,18 @@ public class FloatingActionsMenu extends ViewGroup {
         return new SavedState[size];
       }
     };
+  }
+
+  @Override
+  public boolean onTouchEvent(MotionEvent event) {
+    return false;
+  }
+
+  public AddFloatingActionButton getmAddButton() {
+    return mAddButton;
+  }
+
+  public void setmAddButton(AddFloatingActionButton mAddButton) {
+    this.mAddButton = mAddButton;
   }
 }
