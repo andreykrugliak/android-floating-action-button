@@ -542,15 +542,14 @@ public class FloatingActionsMenu extends ViewGroup {
 
   private void collapse(boolean immediately) {
     if (mExpanded) {
+      if (mListener != null) {
+        mListener.onMenuCollapsed();
+      }
       mExpanded = false;
       mTouchDelegateGroup.setEnabled(false);
       mCollapseAnimation.setDuration(immediately ? 0 : ANIMATION_DURATION);
       mCollapseAnimation.start();
       mExpandAnimation.cancel();
-
-      if (mListener != null) {
-        mListener.onMenuCollapsed();
-      }
     }
   }
 
@@ -564,14 +563,14 @@ public class FloatingActionsMenu extends ViewGroup {
 
   public void expand() {
     if (!mExpanded) {
+      if (mListener != null) {
+        mListener.onMenuExpanded();
+      }
+
       mExpanded = true;
       mTouchDelegateGroup.setEnabled(true);
       mCollapseAnimation.cancel();
       mExpandAnimation.start();
-
-      if (mListener != null) {
-        mListener.onMenuExpanded();
-      }
     }
   }
 
