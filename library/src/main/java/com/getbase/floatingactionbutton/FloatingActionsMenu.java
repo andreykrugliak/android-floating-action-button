@@ -222,9 +222,9 @@ public class FloatingActionsMenu extends ViewGroup {
     for (int i = 0; i < mButtonsCount; i++) {
       View child = getChildAt(i);
 
-      // if (child.getVisibility() == GONE) {
-      //   continue;
-      // }
+      if (child.getVisibility() == GONE) {
+        continue;
+      }
 
       switch (mExpandDirection) {
       case EXPAND_UP:
