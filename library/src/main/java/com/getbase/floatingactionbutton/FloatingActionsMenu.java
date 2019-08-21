@@ -220,11 +220,11 @@ public class FloatingActionsMenu extends ViewGroup {
     int maxLabelWidth = 0;
 
     for (int i = 0; i < mButtonsCount; i++) {
-      View child = getChildAt(i);
+      // View child = getChildAt(i);
 
-      if (child.getVisibility() == GONE) {
-        continue;
-      }
+      // if (child.getVisibility() == GONE) {
+      //   continue;
+      // }
 
       switch (mExpandDirection) {
       case EXPAND_UP:
