@@ -181,12 +181,8 @@ public class FloatingActionsMenu extends ViewGroup {
 
     mAddButton.setId(R.id.fab_expand_menu_button);
     mAddButton.setSize(mAddButtonSize);
-    // mAddButton.setOnClickListener(new OnClickListener() {
-    //   @Override
-    //   public void onClick(View v) {
-    //     // toggle();
-    //   }
-    // });
+    mAddButton.setOnClickListener(null);
+    mAddButton.setClickable(false);
 
     addView(mAddButton, super.generateDefaultLayoutParams());
     mButtonsCount++;
