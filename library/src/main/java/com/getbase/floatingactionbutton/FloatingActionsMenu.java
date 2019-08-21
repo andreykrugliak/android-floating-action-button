@@ -92,8 +92,8 @@ public class FloatingActionsMenu extends ViewGroup {
     mLabelsMargin = getResources().getDimensionPixelSize(R.dimen.fab_labels_margin);
     mLabelsVerticalOffset = getResources().getDimensionPixelSize(R.dimen.fab_shadow_offset);
 
-    mTouchDelegateGroup = new TouchDelegateGroup(this);
-    setTouchDelegate(mTouchDelegateGroup);
+    // mTouchDelegateGroup = new TouchDelegateGroup(this);
+    // setTouchDelegate(mTouchDelegateGroup);
 
     TypedArray attr = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionsMenu, 0, 0);
     mAddButtonPlusColor = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonPlusIconColor, getColor(android.R.color.white));
@@ -284,9 +284,9 @@ public class FloatingActionsMenu extends ViewGroup {
     case EXPAND_DOWN:
       boolean expandUp = mExpandDirection == EXPAND_UP;
 
-      if (changed) {
-        mTouchDelegateGroup.clearTouchDelegates();
-      }
+      // if (changed) {
+      //   mTouchDelegateGroup.clearTouchDelegates();
+      // }
 
       int addButtonY = expandUp ? b - t - mAddButton.getMeasuredHeight() : 0;
       // Ensure mAddButton is centered on the line where the buttons should be
@@ -348,7 +348,7 @@ public class FloatingActionsMenu extends ViewGroup {
               childY - mButtonSpacing / 2,
               Math.max(childX + child.getMeasuredWidth(), labelRight),
               childY + child.getMeasuredHeight() + mButtonSpacing / 2);
-          mTouchDelegateGroup.addTouchDelegate(new TouchDelegate(touchArea, child));
+          // mTouchDelegateGroup.addTouchDelegate(new TouchDelegate(touchArea, child));
 
           label.setTranslationY(mExpanded ? expandedTranslation : collapsedTranslation);
           label.setAlpha(mExpanded ? 1f : 0f);
@@ -546,7 +546,7 @@ public class FloatingActionsMenu extends ViewGroup {
         mListener.onMenuCollapsed();
       }
       mExpanded = false;
-      mTouchDelegateGroup.setEnabled(false);
+      // mTouchDelegateGroup.setEnabled(false);
       mCollapseAnimation.setDuration(immediately ? 0 : ANIMATION_DURATION);
       mCollapseAnimation.start();
       mExpandAnimation.cancel();
@@ -568,7 +568,7 @@ public class FloatingActionsMenu extends ViewGroup {
       }
 
       mExpanded = true;
-      mTouchDelegateGroup.setEnabled(true);
+      // mTouchDelegateGroup.setEnabled(true);
       mCollapseAnimation.cancel();
       mExpandAnimation.start();
     }
@@ -599,7 +599,7 @@ public class FloatingActionsMenu extends ViewGroup {
     if (state instanceof SavedState) {
       SavedState savedState = (SavedState) state;
       mExpanded = savedState.mExpanded;
-      mTouchDelegateGroup.setEnabled(mExpanded);
+      // mTouchDelegateGroup.setEnabled(mExpanded);
 
       if (mRotatingDrawable != null) {
         mRotatingDrawable.setRotation(mExpanded ? EXPANDED_PLUS_ROTATION : COLLAPSED_PLUS_ROTATION);
