@@ -551,7 +551,7 @@ public class FloatingActionsMenu extends ViewGroup {
 
   public void toggle() {
     if (mExpanded) {
-      collapse();
+      collapseImmediately();
     } else {
       expand();
     }
