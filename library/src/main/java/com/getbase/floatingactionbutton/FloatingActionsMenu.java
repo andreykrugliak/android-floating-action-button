@@ -280,9 +280,9 @@ public class FloatingActionsMenu extends ViewGroup {
     case EXPAND_DOWN:
       boolean expandUp = mExpandDirection == EXPAND_UP;
 
-      // if (changed) {
-      //   mTouchDelegateGroup.clearTouchDelegates();
-      // }
+       if (changed) {
+         mTouchDelegateGroup.clearTouchDelegates();
+       }
 
       int addButtonY = expandUp ? b - t - mAddButton.getMeasuredHeight() : 0;
       // Ensure mAddButton is centered on the line where the buttons should be
@@ -344,7 +344,7 @@ public class FloatingActionsMenu extends ViewGroup {
               childY - mButtonSpacing / 2,
               Math.max(childX + child.getMeasuredWidth(), labelRight),
               childY + child.getMeasuredHeight() + mButtonSpacing / 2);
-          // mTouchDelegateGroup.addTouchDelegate(new TouchDelegate(touchArea, child));
+           mTouchDelegateGroup.addTouchDelegate(new TouchDelegate(touchArea, child));
 
           label.setTranslationY(mExpanded ? expandedTranslation : collapsedTranslation);
           label.setAlpha(mExpanded ? 1f : 0f);
